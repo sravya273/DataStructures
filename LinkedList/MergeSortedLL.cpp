@@ -60,12 +60,12 @@ node* merge (node *a, node *b)
 int main() {
 	struct node *a = NULL, *b =NULL, *result=NULL;
 	push(&a,15);
-	push(&a,25);
 	push(&a,20);
+	push(&a,25);
 	
 	push(&b,1);
-	push(&b,50);
 	push(&b,35);
+	push(&b,50);
 	
 	result = merge(a,b);
 	cout<<"Merged list is ";
