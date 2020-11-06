@@ -9,6 +9,19 @@ Similarly, {5, 7} and {6, 8} should be merged and become {5, 8}
 #include <bits/stdc++.h>
 using namespace std;
 
+bool sort_fun(pair<int,int>a, pair<int,int>b)
+{
+    return a.first<b.first;
+}
+
+void printIntervals(stack <pair<int,int>> &stk)
+{
+    while(!stk.empty())
+    {
+        cout<<stk.top().first<<" "<<stk.top().second<<endl;
+        stk.pop();
+    }
+}
 void mergeIntervals(vector <pair<int,int>> &intervals)
 {
     int n= intervals.size();
@@ -16,21 +29,22 @@ void mergeIntervals(vector <pair<int,int>> &intervals)
     return;
     
     //sort the elements of vector by ascending order of first elements
+    sort(intervals.begin(),intervals.end(),sort_fun);
     
     stack <pair<int,int>>stk;
     stk.push(intervals[0]);
     pair <int,int> temp;
     for(int i=1;i<n;i++)
     {
-        if(intervals[i].first)>stk.top().second)
+        if(intervals[i].first>stk.top().second)
         stk.push(intervals[i]);
         
         else if(stk.top().second<intervals[i].second)
-        temp = make_pair(stk.top.first,in[].second);
+        temp = make_pair(stk.top().first,intervals[i].second);
         stk.pop();
         stk.push(temp);
     }
-    
+    printIntervals(stk);
 }
 int main() {
 	vector <pair<int,int>>intervals;
@@ -43,5 +57,7 @@ int main() {
 	    intervals.push_back(make_pair(a,b));
 	}
 	mergeIntervals(intervals);
+
 	return 0;
+	
 }
