@@ -36,6 +36,8 @@ struct bnode* insertBST(struct bnode *root, int value)
 
 int minValue(struct bnode *root)
 {
+    if(root == NULL)
+    return -1;
     struct bnode *temp = root;
     while(temp->left!=NULL)
     temp = temp->left;
@@ -45,6 +47,8 @@ int minValue(struct bnode *root)
 
 int maxValue(struct bnode *root)
 {
+    if(root == NULL)
+    return -1;
     struct bnode *temp = root;
     while(temp->right!=NULL)
     temp = temp->right;
