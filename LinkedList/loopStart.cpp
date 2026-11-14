@@ -29,7 +29,7 @@ void findLink(struct lnode *p, struct lnode *q)
     while(p!=NULL && q!=NULL && q->next!=NULL)
     {
         p=p->next;
-        q=q->next->next;
+        q=q->next;
         if(p==q)
         {cout<<"loop at "<<p->data; return;}
     }
