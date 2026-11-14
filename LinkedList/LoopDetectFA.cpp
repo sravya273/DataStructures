@@ -15,7 +15,7 @@ struct lnode* addNode(int i)
     t->next=NULL;
     return t;
 }
-
+// tortoise and hare algorithm
 bool detectLoop(struct lnode *l)
 {
     struct lnode *p,*q;
